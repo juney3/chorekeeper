@@ -1,5 +1,6 @@
 // Require mongoose
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var HackSchema = new mongoose.Schema({
 		text: String,

@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
+
 function UsersController(){
   this.index = function(req,res){
     Friend.find({}, function(err, friends){
