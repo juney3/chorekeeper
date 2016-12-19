@@ -28,6 +28,7 @@ img{
 	display: block;
 	text-align: center; 
 	padding-top: 10px;
+	margin-bottom: 70px;
 }
 	
 	#appTitle{
@@ -43,4 +44,12 @@ img{
 		color: white;
 		margin-top: 10px;
 		font-size: 16px;
+	}
+
+#indexBody{
+	text-align: center;
+}
+
+	#indexBody img{
+		margin: 0 auto;
 	}

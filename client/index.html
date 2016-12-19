@@ -15,22 +15,103 @@
 	<script src="js/config.js" charset="utf-8"></script>
 	<script src="js/controllers/indexController.js" charset="utf-8"></script>
 	<script src="js/factories/usersFactory.js" charset="utf-8"></script>
+	
 </head>
 <body>
+	<script type="text/javascript" src="jquery/dist/jquery.min.js"></script> 
+	<script src="materialize/dist/js/materialize.min.js" type="text/javascript" charset="UTF-8"></script>
+	<script>
 
+		$(document).ready(function(){
+		   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+		   $('.modal').modal();
+		});
+
+	</script>
 
 	
 	<div id="navbar" width="100%">
 
-		<a href="#!/register"><p id="signUp">Sign Up</p></a>
+
+		<a class="waves-effect waves-light btn" href="#modal1">Register</a>
+		<a class="waves-effect waves-light btn" href="#modal2">Log In</a>
 
 	</div> 
 	
 	<div ng-view=''>
 
 
-	<script type="text/javascript" src="jquery/dist/jquery.min.js"></script> 
-	<script src="materialize/js/materialize.min.js" type="text/javascript" charset="UTF-8"></script>
+	
 	</div> 
+
+	<div id="modal1" class="modal">
+	    <div class="modal-content">
+	      <h4>Register</h4>
+	      	<div class="row">
+			  <form class="col s12">
+			    <div class="row">
+			      <div class="input-field col s6">
+			        <input id="first_name" type="text" class="validate">
+			        <label for="first_name">First Name</label>
+			      </div>
+			      <div class="input-field col s6">
+			        <input id="last_name" type="text" class="validate">
+			        <label for="last_name">Last Name</label>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="input-field col s12">
+			        <input id="email" type="email" class="validate">
+			        <label for="email">Email</label>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="input-field col s6">
+			        <input id="password" type="password" class="validate">
+			        <label for="password">Password</label>
+			      </div>
+			      <div class="input-field col s6">
+			        <input id="confirmPassword" type="password" class="validate">
+			        <label for="confirmPassword">Confirm Password</label>
+			      </div>
+			    </div>
+			       
+			  </form>
+			</div>
+
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+	      <a class="waves-effect waves-light btn">Submit</a> 
+	    </div>
+	</div>
+
+	<div id="modal2" class="modal">
+	    <div class="modal-content">
+	      <h4>Log In</h4>
+	      	<div class="row">
+			  <form class="col s12">
+			    <div class="row">
+			      <div class="input-field col s12">
+			        <input id="email" type="email" class="validate">
+			        <label for="email">Email</label>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="input-field col s6">
+			        <input id="password" type="password" class="validate">
+			        <label for="password">Password</label>
+			      </div>
+			    </div>
+			       
+			  </form>
+			</div>
+
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+	      <a class="waves-effect waves-light btn">Log in</a> 
+	    </div>
+	</div>
 </body>
 </html>

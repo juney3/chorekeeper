@@ -1,4 +1,4 @@
-app.factory('usersFactory', ['$http', function($http) {
+app.factory('usersFactory', function($http) {
   // constructor for our factory
   var users = [];
   var user = {};
@@ -15,4 +15,4 @@ app.factory('usersFactory', ['$http', function($http) {
     };
 
   return new UsersFactory();
-}]);
+});
