@@ -1,0 +1,46 @@
+* {
+	font-family: roboto;
+}
+
+#navbar {
+	height: 50px;
+	background-color: #486A83; 
+	padding-top: 5px;
+	position: relative; 
+}
+
+	#signUp{
+		position: absolute; 
+		right: 15px;
+		color: white;
+		margin-top: 10px;
+	}
+
+img{
+	margin-bottom: 0px;
+	display: block;
+}
+
+#title_banner{
+	height: 170px; 
+	background-color: #486A83; 
+	margin-top: 0px;
+	display: block;
+	text-align: center; 
+	padding-top: 10px;
+}
+	
+	#appTitle{
+		font-family: noteworthy;
+		color: white; 
+		font-size: 48px;
+		font-weight: regular;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	#title_banner p{
+		color: white;
+		margin-top: 10px;
+		font-size: 16px;
+	}
