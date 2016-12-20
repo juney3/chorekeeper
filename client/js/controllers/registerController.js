@@ -1,4 +1,4 @@
-app.controller('indexController', ['$scope', 'usersFactory', '$location', function($scope, usersFactory, $location){
+app.controller('registerController', ['$scope', 'usersFactory', '$location', function($scope, usersFactory, $location){
 	$scope.users = []; 
 	// usersFactory.index(function(data){
 	// 	$scope.users = data; 
