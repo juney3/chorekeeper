@@ -1,26 +1,23 @@
 // Require mongoose
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var bcrypt = require('bcryptjs');
 
 var UserSchema = new mongoose.Schema({
 		firstName: {
 			type: String, 
-			required: true, 
+			required: [true, "Please provide your first name"], 
 			minlength: 2
 		},
 		lastName: {
 			type: String, 
-			required: true, 
+			required: [true, "Please provide your last name"],  
 			minlength: 2
 		}, 
-		userName: {
-			type: String, 
-			minlength: 2
-		},
 		password: {
 			type: String, 
-			required: true, 
-			minlength: 8, 
+			required: [true, "Please create a password"], 
+			minlength: [8, "Password must be at least 8 characters long"], 
 			validate: {
 				validator: function(value){
 					return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,32}/.test( value );
@@ -30,7 +27,7 @@ var UserSchema = new mongoose.Schema({
 		},
 		email: {
 			type: String, 
-			required: true,
+			required: [true, "Please provide your email address"],
 			unique: true,
 			validate: {
 				validator: function(value){
@@ -43,6 +40,16 @@ var UserSchema = new mongoose.Schema({
 		household: {type: Schema.Types.ObjectId, ref: 'Household'},
 		chore: [{type: Schema.Types.ObjectId, ref: 'Chore'}]
 	}, { timestamps: true});
+
+UserSchema.methods.addBcrypt = function(password){
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+}
+
+UserSchema.pre('save', function(done){
+	this.password = this.addBcrypt(this.password);
+	done();
+})
+
 
 mongoose.model('User', UserSchema);
 mongoose.Promise = global.Promise;

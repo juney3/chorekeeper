@@ -6,10 +6,15 @@ var bcrypt = require('bcryptjs');
 function UsersController(){
 
   this.register = function(req,res){
+    // if(req.body.password !== req.body.confirmPassword){
+    //   var err = {errors: message: "Password doesn't match your confirmation!"};
+    //   res.json(err);
+    // }
+    
     var user = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName, 
-      password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8)), 
+      password: req.body.password, 
       email: req.body.email
     })
     user.save(function(err,data){
@@ -21,6 +26,9 @@ function UsersController(){
         res.json({data:data});
       }
     })
+    
+    
+    
   }
 }
 module.exports = new UsersController(); 

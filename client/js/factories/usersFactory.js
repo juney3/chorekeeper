@@ -5,10 +5,9 @@ app.factory('usersFactory', ['$http', function($http) {
   function UsersFactory(){
     var _this = this;
     this.create = function(newUser,callback){
-
       $http.post('/user', newUser).then(function(data){
-        console.log("in the factory ",data.data);
         if (typeof(callback) == 'function'){
+          console.log("in the factory ",data.data);
           callback(data.data);
         }
       });
