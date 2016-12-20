@@ -1,5 +1,8 @@
 var app = angular.module('app', ['ngRoute']);
-{app.config(function ($routeProvider){
+// var angularMaterialize = require('angular-materialize');
+// angular.module('app', [angularMaterialize]);
+
+app.config(function ($routeProvider){
 	$routeProvider
 		.when('/',{
 			templateUrl: 'partials/index.html',
@@ -9,7 +12,11 @@ var app = angular.module('app', ['ngRoute']);
 			templateUrl: 'partials/register.html', 
 			controller: 'registerController'
 		})
+		.when('/dashboard', {
+			templateUrl: 'partials/dashboard.html', 
+			controller: 'dashboardController'
+		})
 		.otherwise({
 			redirectTo: '/'
 		})
-});}
+});

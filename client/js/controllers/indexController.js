@@ -1,8 +1,21 @@
-app.controller('indexController', ['$scope', 'usersFactory', function($scope, usersFactory){
+app.controller('indexController', ['$scope', 'usersFactory', '$location', function($scope, usersFactory, $location){
 	$scope.users = []; 
-	usersFactory.index(function(data){
-		$scope.users = data; 
-	})
+	// usersFactory.index(function(data){
+	// 	$scope.users = data; 
+	// })
+
+	$scope.register = function(){
+
+		usersfactory.create($scope.newUser, function(data){
+			if(data.errors){
+				console.log(data.errors); 
+			}
+			else{
+				console.log("in indexController ", data);
+				$location.url('/dashboard');
+			}
+		})
+	}
 
 }])
 

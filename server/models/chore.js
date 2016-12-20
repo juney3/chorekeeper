@@ -1,9 +1,10 @@
 // Require mongoose
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var ChoreSchema = new mongoose.Schema({
-		_category: {type: Schema.Types.ObjectId, ref 'Category'},
-		_user: {type: Schema.Types.ObjectId, ref 'User'}, 
+		_category: {type: Schema.Types.ObjectId, ref: 'Category'},
+		_user: {type: Schema.Types.ObjectId, ref: 'User'}, 
 		completed: {type: Date, required: true},
 		description: String,
 		thumbs_up: Number,

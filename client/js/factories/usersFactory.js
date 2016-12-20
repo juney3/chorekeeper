@@ -6,13 +6,14 @@ app.factory('usersFactory', function($http) {
     var _this = this;
     this.create = function(newUser,callback){
       
-      $http.post('/users', newUser).then(function(returned_data){
-        console.log(returned_data.data);
+      $http.post('/user', newUser).then(function(data){
+        console.log("in the factory ",data.data);
         if (typeof(callback) == 'function'){
-          callback(returned_data.data);
+          callback(data.data);
         }
       });
     };
+  }
 
   return new UsersFactory();
 });

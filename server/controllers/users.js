@@ -4,15 +4,9 @@ var User = mongoose.model('User');
 
 
 function UsersController(){
-  this.index = function(req,res){
-    Friend.find({}, function(err, friends){
-      if(err){
-        console.log("error");
-      }
-      else{
-        res.json(friends);
-      }
-    })
-  };
+
+  this.register = function(req,res){
+    console.log("req.body is ",req.body);
+  }
 }
 module.exports = new UsersController(); 
