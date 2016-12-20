@@ -20,8 +20,7 @@ var UserSchema = new mongoose.Schema({
 		password: {
 			type: String, 
 			required: true, 
-			minlength: 8,
-			maxlength: 32, 
+			minlength: 8, 
 			validate: {
 				validator: function(value){
 					return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,32}/.test( value );
@@ -41,7 +40,7 @@ var UserSchema = new mongoose.Schema({
 			}
 			
 		},
-		household: [{type: Schema.Types.ObjectId, ref: 'Household'}],
+		household: {type: Schema.Types.ObjectId, ref: 'Household'},
 		chore: [{type: Schema.Types.ObjectId, ref: 'Chore'}]
 	}, { timestamps: true});
 

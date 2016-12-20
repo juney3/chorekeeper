@@ -1,6 +1,5 @@
-var app = angular.module('app', ['ngRoute']);
-// var angularMaterialize = require('angular-materialize');
-// angular.module('app', [angularMaterialize]);
+var app = angular.module('app', ['ngRoute', 'ui.materialize']);
+
 
 app.config(function ($routeProvider){
 	$routeProvider

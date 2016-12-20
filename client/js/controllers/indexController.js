@@ -4,6 +4,17 @@ app.controller('indexController', ['$scope', 'usersFactory', '$location', functi
 	// 	$scope.users = data; 
 	// })
 
+	// $scope.index = function(){
+	// 	console.log("loading");
+	// 	$(document).ready(function(){
+	// 	   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+	// 	   $('.modal').modal();
+	// 	});
+		
+	// };
+
+	// $scope.index();
+
 	$scope.register = function(){
 		console.log("submitted");
 		usersfactory.create($scope.newUser, function(data){
