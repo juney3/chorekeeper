@@ -1,10 +1,11 @@
-app.factory('usersFactory', function($http) {
+app.factory('usersFactory', ['$http', function($http) {
   // constructor for our factory
   var users = [];
   var user = {};
   function UsersFactory(){
     var _this = this;
     this.create = function(newUser,callback){
+      console.log("in the factory ", newUser);
       
       $http.post('/user', newUser).then(function(data){
         console.log("in the factory ",data.data);
@@ -16,4 +17,4 @@ app.factory('usersFactory', function($http) {
   }
 
   return new UsersFactory();
-});
+}]);

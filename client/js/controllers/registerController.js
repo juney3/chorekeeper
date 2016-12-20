@@ -5,8 +5,8 @@ app.controller('registerController', ['$scope', 'usersFactory', '$location', fun
 	// })
 
 	$scope.register = function(){
-		console.log("submitted");
-		usersfactory.create($scope.newUser, function(data){
+		console.log("submitted ", $scope.newUser);
+		usersFactory.create($scope.newUser, function(data){
 			if(data.errors){
 				console.log(data.errors); 
 			}
