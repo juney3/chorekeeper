@@ -37,16 +37,16 @@ function HouseholdsController(){
   }
 
   this.request = function(req,res){
-    console.log("USER ",req.body.user._id);
-    // Household.update({name:req.body.household.name}, {"$push": {requests: req.body.user._id}}, function(err, data){
-    //   if(err){
-    //     console.log("error");
-    //   }
-    //   else{
-    //     console.log("added request");
-    //     res.json(data);
-    //   }
-    // })
+    console.log("USER for request",req.body.user._id);
+    Household.update({name:req.body.household.name}, {"$push": {requests: req.body.user._id}}, function(err, data){
+      if(err){
+        console.log("error");
+      }
+      else{
+        console.log("added request");
+        res.json(data);
+      }
+    })
   }
   
   this.retrieve = function(req,res){
@@ -54,6 +54,7 @@ function HouseholdsController(){
     Household.findOne( {_user: req.body._id})
       .populate('_user')
       .populate('admin')
+      .populate('requests')
       .exec(function(err, household){
       if(err){
         console.log('server side household controller retrieve error', err);

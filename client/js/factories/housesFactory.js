@@ -19,8 +19,11 @@ app.factory('housesFactory', ['$http', function($http) {
     this.retrieve = function(user, callback){
       $http.post('/house/household', user).then(function(household){
         if(typeof(callback) == 'function'){
-          console.log('usersFactory returns household', household);
+          // console.log('housesFactory returns household', household);
           callback(household.data);
+        }
+      })
+    }
 
     this.find = function(callback){
       $http.get('/houses').then(function(data){
