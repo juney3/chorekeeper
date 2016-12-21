@@ -6,10 +6,6 @@ var bcrypt = require('bcryptjs');
 function UsersController(){
 
   this.register = function(req,res){
-    // if(req.body.password !== req.body.confirmPassword){
-    //   var err = {errors: message: "Password doesn't match your confirmation!"};
-    //   res.json(err);
-    // }
     
     var user = new User({
       firstName: req.body.firstName,
@@ -25,10 +21,14 @@ function UsersController(){
       else{
         res.json({data:data});
       }
+    }) 
+  }
+
+  this.findLogged = function(req,res){
+    User.findOne({_id: req.body._id}, function(err, user){
+      console.log(user);
+      res.json(user);
     })
-    
-    
-    
   }
 }
 module.exports = new UsersController(); 

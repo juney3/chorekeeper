@@ -1,0 +1,32 @@
+<div id="navbar" width="100%"></div> 
+
+<img src="images/chorekeeper_banner.png" alt="banner" width="100%"/>
+
+
+
+	<h2>Create a Household</h2>
+
+	<div class="row">
+	    <form class="col s12">
+	      <div class="row">
+	        <div class="input-field col s6">
+	          <input id="household_name" type="text" class="validate" ng-model="newHouse.name">
+	          <label for="household_name">Household Name</label>
+	        </div>
+	      </div>
+	      <div class="row"> 
+	      	<p>Write in a standard chore you do around the house. Don't worry, you can add more later.</p>
+	      </div> 
+	      <div class="row">
+	      	<div class="input-field col s6">
+	          <input id="chore" type="text" class="validate" ng-model="newHouse.choreType">
+	          <label for="chore">Chore</label>
+	        </div>
+	      </div> 
+	      <div class="row">
+	      	<a class="waves-effect waves-light btn" ng-click="create()">Create</a> 
+	      </div> 
+
+	    </form>
+	  </div>
+

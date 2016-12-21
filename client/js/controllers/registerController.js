@@ -1,4 +1,4 @@
-app.controller('registerController', ['$scope', 'usersFactory', '$location', function($scope, usersFactory, $location){
+app.controller('registerController', ['$scope', 'usersFactory', '$location', '$cookies', function($scope, usersFactory, $location, $cookies){
 	$scope.users = []; 
 	$scope.errors = []; 
 	$scope.confirmError = [];
@@ -11,8 +11,9 @@ app.controller('registerController', ['$scope', 'usersFactory', '$location', fun
 			}
 			else{
 				console.log("in indexController ", data);
+				$cookies.put('loggedUser', data.data._id);
 				$('#modal1').modal('close');
-				$location.url('/dashboard');
+				$location.url('/welcome');
 			}
 		})
 	}

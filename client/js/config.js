@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ui.materialize']);
+var app = angular.module('app', ['ngRoute', 'ui.materialize', 'ngCookies']);
 
 
 app.config(function ($routeProvider){
@@ -10,6 +10,14 @@ app.config(function ($routeProvider){
 		.when('/register', {
 			templateUrl: 'partials/register.html', 
 			controller: 'registerController'
+		})
+		.when('/welcome',{
+			templateUrl: 'partials/welcome.html', 
+			controller: 'welcomeController'
+		})
+		.when('/createHouse', {
+			templateUrl: 'partials/createHouse.html', 
+			controller: 'createHouseController'
 		})
 		.when('/dashboard', {
 			templateUrl: 'partials/dashboard.html', 

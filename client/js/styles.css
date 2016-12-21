@@ -46,10 +46,10 @@ img{
 		font-size: 16px;
 	}
 
-#indexBody{
+.body{
 	text-align: center;
 }
 
-	#indexBody img{
+	.body img{
 		margin: 0 auto;
 	}
