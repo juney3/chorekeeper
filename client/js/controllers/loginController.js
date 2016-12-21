@@ -1,7 +1,5 @@
 app.controller('loginController', ['$scope', 'usersFactory', '$location', '$cookies', function($scope, usersFactory, $location, $cookies){
-	
-	// confirm that the loginController loads
-	console.log('loginController loaded');
+
 
 	// define $scope variables
 	$scope.user = [];

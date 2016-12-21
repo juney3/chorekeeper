@@ -19,9 +19,17 @@ app.config(function ($routeProvider){
 			templateUrl: 'partials/createHouse.html', 
 			controller: 'createHouseController'
 		})
+		.when('/joinHouse', {
+			templateUrl: 'partials/joinHouse.html',
+			controller: 'joinHouseController'
+		})
 		.when('/#modal2', {
 			templateUrl: 'partials/login.html',
 			controller: 'loginController'
+		})
+		.when('/confirm',{
+			templateUrl: 'partials/confirm.html',
+			controller: 'confirmController'
 		})
 		.when('/dashboard', {
 			templateUrl: 'partials/dashboard.html', 

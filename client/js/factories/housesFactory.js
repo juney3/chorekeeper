@@ -14,6 +14,23 @@ app.factory('housesFactory', ['$http', function($http) {
       });
     };
 
+    this.find = function(callback){
+      $http.get('/houses').then(function(data){
+        if(typeof(callback) == 'function'){
+          callback(data);
+          houses = data; 
+        }
+      })
+    }
+
+    this.request = function(data,callback){
+      $http.post('/request', data).then(function(data){
+        if(typeof(callback) == 'function'){
+          callback(data.data);
+        }
+      })
+    }
+
     
   }
 

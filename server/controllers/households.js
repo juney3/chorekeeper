@@ -21,6 +21,33 @@ function HouseholdsController(){
       }
     })
   }
+
+  this.find = function(req,res){
+    Household.find({})
+      .populate('_user')
+      .populate('admin')
+      .exec(function(err,data){
+      if(err){
+        console.log("error");
+      }
+      else{
+        res.json(data);
+      }
+    })
+  }
+
+  this.request = function(req,res){
+    console.log("USER ",req.body.user._id);
+    // Household.update({name:req.body.household.name}, {"$push": {requests: req.body.user._id}}, function(err, data){
+    //   if(err){
+    //     console.log("error");
+    //   }
+    //   else{
+    //     console.log("added request");
+    //     res.json(data);
+    //   }
+    // })
+  }
   
 }
 module.exports = new HouseholdsController(); 

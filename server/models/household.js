@@ -6,7 +6,8 @@ var HouseholdSchema = new mongoose.Schema({
 		name: {type: String},
 		_user: [{type: Schema.Types.ObjectId, ref: 'User'}],
 		_admin: {type: Schema.Types.ObjectId, ref: 'User'},
-		choreType: [{type: String}]
+		choreType: [{type: String}], 
+		requests: [{type: Schema.Types.ObjectId, ref: 'User'}]
 	}, { timestamps: true});
 
 mongoose.model('Household', HouseholdSchema);
