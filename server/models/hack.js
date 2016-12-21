@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var HackSchema = new mongoose.Schema({
-		text: String,
+		title: {type: String},
+		text: {type:String}
 	}, { timestamps: true});
 
 mongoose.model('Hack', HackSchema);

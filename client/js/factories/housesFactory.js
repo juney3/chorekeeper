@@ -21,6 +21,20 @@ app.factory('housesFactory', ['$http', function($http) {
         if(typeof(callback) == 'function'){
           console.log('usersFactory returns household', household);
           callback(household.data);
+
+    this.find = function(callback){
+      $http.get('/houses').then(function(data){
+        if(typeof(callback) == 'function'){
+          callback(data);
+          houses = data; 
+        }
+      })
+    }
+
+    this.request = function(data,callback){
+      $http.post('/request', data).then(function(data){
+        if(typeof(callback) == 'function'){
+          callback(data.data);
         }
       })
     }

@@ -1,0 +1,29 @@
+
+<div id="navbar" width="100%"></div> 
+
+<img src="images/chorekeeper_banner.png" alt="banner" width="100%"/>
+
+<h2>Join a Household</h2>
+
+<table class="highlight">
+
+	<thead>
+      <tr>
+          <th data-field="name">Household</th>
+          <th data-field="members">Members</th>
+          <th data-field="action">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    	<tr ng-repeat="household in households track by $index">
+	       <td>{{ household.name }}</td>
+	       <td><p ng-repeat="user in household._user"> {{ user.firstName }} {{ user.lastName }} </p></td>
+	       <td><a class="waves-effect waves-teal btn-flat" ng-click="request($index)" href="#!/confirm">Request to Join</a></td>
+	    </tr>
+
+    </tbody>
+
+</table>
+
+

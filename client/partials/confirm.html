@@ -1,0 +1,16 @@
+<div id="navbar" width="100%"></div> 
+
+<img src="images/chorekeeper_banner.png" alt="banner" width="100%"/>
+
+<h2>Request Sent</h2>
+
+<p>Your request to join has been sent. The admin must approve your request, and then you will be able to join in on the chorekeeping!</p>
+
+<p>In the meantime, check out this cleaning hack...</p>
+
+<div ng-repeat= "hack in hacks track by $index">
+	<h4>{{ hack.title }} </h4>
+	<p>{{ hack.text }}</p>
+</div> 
+
+<a class="waves-effect waves-light btn" ng-click="logout()">Log Out</a>
