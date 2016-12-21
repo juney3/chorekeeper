@@ -17,6 +17,10 @@ app.factory('usersFactory', ['$http', function($http) {
     this.find = function(user,callback){
       $http.post('/loggedUser', user).then(function(data){
         if(typeof(callback) == 'function'){ 
+          callback(data); 
+        }
+      });
+    }
 
     // login method
     this.login = function(returnUser, callback){
