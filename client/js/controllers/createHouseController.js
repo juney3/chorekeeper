@@ -4,7 +4,7 @@ app.controller('createHouseController', ['$scope', 'housesFactory', 'usersFactor
 	var index = function(){
 		var user = {_id: $cookies.get('loggedUser')};
 		usersFactory.find(user, function(data){
-			$scope.user = data; 
+			$scope.user = data.data; 
 		})
 	}
 

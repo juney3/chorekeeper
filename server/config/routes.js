@@ -7,4 +7,5 @@ module.exports = function(app){
   app.post('/user/login', users.login);
   
   app.post('/house', houses.create);
+  app.post('/house/household', houses.retrieve);
 }

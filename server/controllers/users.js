@@ -32,24 +32,24 @@ function UsersController(){
   }
 
   this.login = function(req,res) {
-    console.log('server UsersController has login data', req.body);
+    // console.log('server UsersController has login data', req.body);
     User.findOne( {email: req.body.email}, function(err, user){
       if(err) {
-        console.log('server UsersController login error', err);
+        // console.log('server UsersController login error', err);
         res.json(err);
       }
       if (user == null) {
-        console.log('no user found');
+        // console.log('no user found');
         res.json({errors: 'User not found in database - Please register'})
       }
       else{
         user.confirmPassword(req.body.password, function (err, isMatch){
           if (err) {
-            console.log('server UsersController pw confirmation error', err);
+            // console.log('server UsersController pw confirmation error', err);
             res.json(err);
           }
           else {
-            console.log(isMatch);
+            // console.log(isMatch);
             res.json(user);
           }
         })

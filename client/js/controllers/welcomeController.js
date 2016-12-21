@@ -5,8 +5,8 @@ app.controller('welcomeController', ['$scope', 'usersFactory', '$location', '$co
 	var index = function(){
 		var user = {_id: $cookies.get('loggedUser')};
 		usersFactory.find(user, function(data){
-			console.log(data);
-			$scope.user = data; 
+			console.log(data.data);
+			$scope.user = data.data; 
 		})
 	}
 

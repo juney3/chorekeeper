@@ -22,5 +22,22 @@ function HouseholdsController(){
     })
   }
   
+  this.retrieve = function(req,res){
+    console.log('server side household controller has', req.body);
+    Household.findOne( {_user: req.body._id})
+      .populate('_user')
+      .populate('admin')
+      .exec(function(err, household){
+      if(err){
+        console.log('server side household controller retrieve error', err);
+        res.json(err);
+      }
+      else {
+        console.log('server side household controller retrieved household', household);
+        res.json(household);
+
+      }
+    });
+  }
 }
 module.exports = new HouseholdsController(); 

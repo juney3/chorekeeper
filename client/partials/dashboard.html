@@ -1,1 +1,12 @@
 <h1>hello</h1>
+
+
+<div>
+	<ul class="collection with-header">
+	<li class="collection-header"><h6>Members</h6></li>
+	<li class="collection-item avatar" ng-repeat="user in users track by $index">
+		<img src="images/person.png" alt={{user.firstName}} class="circle">
+		<p>{{user.firstName}}&nbsp;{{user.lastName}}</p>
+	</li>
+</ul>
+</div>

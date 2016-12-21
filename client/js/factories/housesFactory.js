@@ -2,6 +2,7 @@ app.factory('housesFactory', ['$http', function($http) {
   // constructor for our factory
   var houses = [];
   var house = {};
+  var user = {};
 
   function HousesFactory(){
     var _this = this;
@@ -13,6 +14,16 @@ app.factory('housesFactory', ['$http', function($http) {
         }
       });
     };
+
+    // retrieve household method
+    this.retrieve = function(user, callback){
+      $http.post('/house/household', user).then(function(household){
+        if(typeof(callback) == 'function'){
+          console.log('usersFactory returns household', household);
+          callback(household.data);
+        }
+      })
+    }
 
     
   }
