@@ -50,6 +50,20 @@ UserSchema.pre('save', function(done){
 	done();
 })
 
+UserSchema.methods.confirmPassword = function(password, callback) {
+	bcrypt.compare(password, this.password, function(err, isMatch){
+		if (err){
+		 	callback(err);
+		}
+		if (isMatch == false) {
+			callback({errors: 'Password is not valid'});
+		}
+		else {
+			callback(null, isMatch);
+		}
+	});
+}
+
 
 mongoose.model('User', UserSchema);
 mongoose.Promise = global.Promise;
