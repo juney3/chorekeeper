@@ -12,6 +12,17 @@ app.factory('usersFactory', ['$http', function($http) {
         }
       });
     };
+
+    // login method
+    this.login = function(returnUser, callback){
+      console.log('usersFactory has', returnUser);
+      $http.post('/user/login', returnUser).then(function(data){
+        if (typeof(callback) == 'function'){
+          console.log('usersFactory returns', data.data);
+          callback(data.data);
+        }
+      })
+    }
   }
 
   return new UsersFactory();
