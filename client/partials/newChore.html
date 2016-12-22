@@ -1,0 +1,45 @@
+<div id="navbar" width="100%"></div>
+<img src="images/chorekeeper_banner.png" alt="banner" width="100%"/>
+
+<h4>Record a New Chore</h4>
+
+
+	<div class="row">
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s4">
+					<input id="chore_name" type="text" class="validate" ng-model="newChore.name">
+					<label for="chore_name">Chore Type</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s4">
+					<input id="completed" type="date" class="datepicker" ng-model="newChore.completed">
+					<label for="completed">Date Completed</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s4">
+					<textarea id="description" class="materialize-textarea" ng-model="newChore.description"></textarea>
+					<label for="description">Description</label>
+				</div>
+			</div>
+			<div class="row">
+				<a class="waves-effect waves-light btn" ng-click="create()">Create</a>
+			</div>
+		</form>
+	</div>
+	<script>
+		$(document).ready(function() {
+	    $('select').material_select();
+
+
+	    window.picker = $('.datepicker').pickadate({
+
+	        selectYears: 16, // Creates a dropdown of 15 years to control year
+	        format: 'yyyy-mm-dd'
+	    	});
+
+			});
+	</script>
+

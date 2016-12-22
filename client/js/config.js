@@ -35,6 +35,10 @@ app.config(function ($routeProvider){
 			templateUrl: 'partials/dashboard.html', 
 			controller: 'dashboardController'
 		})
+		.when('/newChore', {
+			templateUrl: 'partials/newChore.html',
+			controller: 'newChoreController'
+		})
 		.otherwise({
 			redirectTo: '/'
 		})
