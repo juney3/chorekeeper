@@ -67,5 +67,25 @@ function HouseholdsController(){
       }
     });
   }
+
+  this.approve = function(req,res){
+    console.log("REQ BODY ",req.body);
+    Household.update({_id: req.body.household._id}, {"$pull": {requests: req.body.user._id}}, function(err, data){
+      if(err){
+        console.log("error");
+      }
+      else{
+        console.log("success");
+      }
+    })
+    Household.update({_id: req.body.household._id}, {"$push": {_user: req.body.user._id}}, function(err,data){
+      if(err){
+        console.log("error");
+      }
+      else{
+        res.json(data);
+      }
+    })
+  }
 }
 module.exports = new HouseholdsController(); 

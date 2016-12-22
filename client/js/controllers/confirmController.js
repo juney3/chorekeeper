@@ -15,4 +15,9 @@ app.controller('confirmController', ['$scope', 'hacksFactory', '$location', '$co
 
 	index();
 
+	$scope.logout = function(){
+		$cookies.remove('loggedUser');
+		$location.url('/');
+	}
+
 }])

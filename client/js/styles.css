@@ -2,6 +2,10 @@
 	font-family: roboto;
 }
 
+body{
+	background-color: #ECECEC;
+}
+
 #navbar {
 	height: 50px;
 	background-color: #486A83; 
@@ -21,17 +25,21 @@ img{
 	display: block;
 }
 
-#title_banner{
+.wrapper{
+	text-align: center;
+}
+
+.title_banner{
 	height: 170px; 
 	background-color: #486A83; 
 	margin-top: 0px;
 	display: block;
 	text-align: center; 
 	padding-top: 10px;
-	margin-bottom: 70px;
+	margin-bottom: 40px;
 }
 	
-	#appTitle{
+	.appTitle{
 		font-family: noteworthy;
 		color: white; 
 		font-size: 48px;
@@ -40,16 +48,26 @@ img{
 		margin-bottom: 10px;
 	}
 
-	#title_banner p{
+	.title_banner p{
 		color: white;
 		margin-top: 10px;
 		font-size: 16px;
 	}
 
+	.title_banner h4{
+		color: white; 
+		margin-top: 25px; 
+	}
+
 .body{
+	margin-top: 20px;
 	text-align: center;
 }
 
 	.body img{
 		margin: 0 auto;
+	}
+
+	.profile{
+		width: 10%;
 	}

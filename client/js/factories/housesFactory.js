@@ -42,6 +42,14 @@ app.factory('housesFactory', ['$http', function($http) {
       })
     }
 
+    this.approve = function(user,callback){
+      $http.post('/approve', user).then(function(data){
+        if(typeof(callback) == 'function'){
+          callback(data.data);
+        }
+      })
+    }
+
     
   }
 

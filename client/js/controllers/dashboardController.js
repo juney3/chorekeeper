@@ -15,8 +15,8 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 		housesFactory.retrieve(user, function(household){
 
 			if (household){
-			console.log('dashboard controller has household', household);
-			console.log('dashboard controller has users', household._user);
+			// console.log('dashboard controller has household', household);
+			// console.log('dashboard controller has users', household._user);
 
 			$scope.household = household;
 			$scope.users = household._user;
@@ -31,9 +31,25 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 			}
 		})
 	}
-	 index();
-
 	
+	index();
+
+	$scope.approve = function(index){
+		var user = {
+			user: $scope.requests[index],
+			household: $scope.household
+		}; 
+		console.log(user);
+		housesFactory.approve(user, function(data){
+			console.log("approved");
+			index();
+		})
+	}
+
+	$scope.logout = function(){
+		$cookies.remove('loggedUser');
+		$location.url('/');
+	}
 
 }])
 

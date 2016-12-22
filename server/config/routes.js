@@ -11,6 +11,7 @@ module.exports = function(app){
   app.post('/house/household', houses.retrieve);
   app.get('/houses', houses.find);
   app.post('/request', houses.request);
+  app.post('/approve', houses.approve); 
 
   app.post('/hack', hacks.create);
   app.get('/hacks', hacks.find);

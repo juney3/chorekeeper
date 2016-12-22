@@ -1,21 +1,30 @@
-<div id="navbar" width="100%"></div> 
+
+<div id="navbar" width="100%">
+	<a class="waves-effect waves-light btn" ng-click="logout()">Log Out</a>
+</div> 
 
 <img src="images/chorekeeper_banner.png" alt="banner" width="100%"/>
 
-<h1>hello</h1>
+<div class="title_banner" width="100%"> 
+	<h1 class="appTitle">{{household.name}}</h1>
+	<h4>Dashboard</h4>
+</div> 
 
 <div class="row">
 <div class="col s3">
+
 	<ul class="collection with-header">
 		<li class="collection-header">Members</li>
-		<li class="collection-item avatar" ng-repeat="user in users track by $index">
-			<img src="images/person.png" alt={{user.firstName}} class="circle responsive-img">
-			<p>{{user.firstName}}&nbsp;{{user.lastName}}</p>
-		</li>
+	    <li class="collection-item avatar" ng-repeat="user in users track by $index">
+	      <img src="images/person.png" alt="" class="circle">
+	      <span class="title">{{user.firstName}}&nbsp;{{user.lastName}}</span>
+	      
+	      <a ng-if="isAdmin" class="secondary-content"><i class="material-icons">grade</i></a>
+	    </li>
 	</ul>
 </div>
 <div class ="col s9">
-<h4>The {{household.name}} household</h4>
+
 </div>
 
 </div>
@@ -23,10 +32,14 @@
 <div class="row">
 <div class="col s3" ng-if="isAdmin">
 <ul class="collection with-header">
-		<li class="collection-header">Approve Requests</li>
+		<li class="collection-header">Pending Member Requests</li>
 		<li class="collection-item" ng-repeat="request in requests track by $index">
-			<p>{{request.firstName}}&nbsp;{{request.lastName}}</p>
+			
+			<span class="title">{{request.firstName}}&nbsp;{{request.lastName}}</span>
+			<a class="secondary-content" ng-click="decline($index)"><i class="material-icons">thumb_down</i></a>
+			<a class="secondary-content" ng-click="approve($index)"><i class="material-icons">thumb_up</i></a>
 		</li>
 	</ul>
 </div>
 </div>
+
