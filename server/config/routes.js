@@ -12,6 +12,7 @@ module.exports = function(app){
   app.get('/houses', houses.find);
   app.post('/request', houses.request);
   app.post('/approve', houses.approve); 
+  app.post('/decline', houses.decline);
 
   app.post('/hack', hacks.create);
   app.get('/hacks', hacks.find);

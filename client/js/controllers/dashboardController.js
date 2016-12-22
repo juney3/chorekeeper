@@ -21,7 +21,7 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 			$scope.household = household;
 			$scope.users = household._user;
 			$scope.requests = household.requests;
-				if(household.admin = $cookies.get('loggedUser')){
+				if(household.admin == $cookies.get('loggedUser')){
 					$scope.isAdmin=true;
 				}
 			}
@@ -31,19 +31,30 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 			}
 		})
 	}
-	
+
 	index();
 
-	$scope.approve = function(index){
+	$scope.approve = function(x){
 		var user = {
-			user: $scope.requests[index],
+			user: $scope.requests[x],
 			household: $scope.household
 		}; 
-		console.log(user);
 		housesFactory.approve(user, function(data){
 			console.log("approved");
-			index();
+			
 		})
+		index();
+	}
+
+	$scope.decline = function(x){
+		var user = {
+			user: $scope.requests[x],
+			household: $scope.household
+		};
+		housesFactory.decline(user, function(data){
+			console.log("declined");
+		})
+		index();
 	}
 
 	$scope.logout = function(){

@@ -13,6 +13,7 @@ app.controller('registerController', ['$scope', 'usersFactory', '$location', '$c
 				console.log("in indexController ", data);
 				$cookies.put('loggedUser', data.data._id);
 				$('#modal1').modal('close');
+				$scope.newUser = '';
 				$location.url('/welcome');
 			}
 		})

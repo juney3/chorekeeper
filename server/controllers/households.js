@@ -87,5 +87,17 @@ function HouseholdsController(){
       }
     })
   }
+
+  this.decline = function(req,res){
+    Household.update({_id: req.body.household._id}, {"$pull": {requests: req.body.user._id}}, function(err, data){
+      if(err){
+        console.log("error");
+      }
+      else{
+        res.json(data);
+      }
+    })
+  }
+
 }
 module.exports = new HouseholdsController(); 

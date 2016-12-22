@@ -71,3 +71,7 @@ img{
 	.profile{
 		width: 10%;
 	}
+
+.dataRow{
+	vertical-align: top;
+}

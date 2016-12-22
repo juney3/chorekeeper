@@ -50,6 +50,14 @@ app.factory('housesFactory', ['$http', function($http) {
       })
     }
 
+    this.decline = function(user,callback){
+      $http.post('/decline', user).then(function(data){
+        if(typeof(callback) == 'function'){
+          callback(data.data);
+        }
+      })
+    }
+
     
   }
 

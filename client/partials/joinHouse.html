@@ -17,9 +17,9 @@
 
     <tbody>
     	<tr ng-repeat="household in households track by $index">
-	       <td>{{ household.name }}</td>
-	       <td><p ng-repeat="user in household._user"> {{ user.firstName }} {{ user.lastName }} </p></td>
-	       <td><a class="waves-effect waves-teal btn-flat" ng-click="request($index)" href="#!/confirm">Request to Join</a></td>
+	       <td class="dataRow">{{ household.name }}</td>
+	       <td class="dataRow"><p ng-repeat="user in household._user"> {{ user.firstName }} {{ user.lastName }} </p></td>
+	       <td class="dataRow"><a class="waves-effect waves-light btn" ng-click="request($index)" href="#!/confirm">Request to Join</a></td>
 	    </tr>
 
     </tbody>
