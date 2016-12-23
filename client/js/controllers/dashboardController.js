@@ -13,7 +13,6 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 			$scope.user = data.data;
 		})
 		housesFactory.retrieve(user, function(household){
-
 			if (household){
 			// console.log('dashboard controller has household', household);
 			// console.log('dashboard controller has users', household._user);
@@ -21,7 +20,7 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 			$scope.household = household;
 			$scope.users = household._user;
 			$scope.requests = household.requests;
-				if(household.admin == $cookies.get('loggedUser')){
+				if(household._admin == $cookies.get('loggedUser')){
 					$scope.isAdmin=true;
 				}
 			}

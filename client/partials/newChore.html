@@ -8,8 +8,11 @@
 		<form class="col s12">
 			<div class="row">
 				<div class="input-field col s4">
-					<input id="chore_name" type="text" class="validate" ng-model="newChore.name">
-					<label for="chore_name">Chore Type</label>
+					<select ng-model = "newChore.choreType">
+				      <!-- <option value="" disabled selected>Choose one</option> -->
+				      <option ng-repeat = "chore in chores">{{chore }}</option>
+				    </select>
+				    <label>Chore Type</label>
 				</div>
 			</div>
 			<div class="row">
@@ -20,7 +23,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s4">
-					<textarea id="description" class="materialize-textarea" ng-model="newChore.description"></textarea>
+					<textarea id="description" class="materialize-textarea" length="100" ng-model="newChore.description"></textarea>
 					<label for="description">Description</label>
 				</div>
 			</div>
@@ -29,6 +32,7 @@
 			</div>
 		</form>
 	</div>
+
 	<script>
 		$(document).ready(function() {
 	    $('select').material_select();
@@ -41,5 +45,7 @@
 	    	});
 
 			});
+
+		$('input#input_text, textarea#description').characterCounter();
 	</script>
 

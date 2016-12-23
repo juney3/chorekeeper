@@ -3,6 +3,7 @@ app.factory('housesFactory', ['$http', function($http) {
   var houses = [];
   var house = {};
   var user = {};
+  var choreTypes = [];
 
   function HousesFactory(){
     var _this = this;
@@ -21,8 +22,13 @@ app.factory('housesFactory', ['$http', function($http) {
         if(typeof(callback) == 'function'){
           // console.log('housesFactory returns household', household);
           callback(household.data);
+          choreTypes = household.data.choreType;
         }
       })
+    }
+
+    this.retrieveChores = function(callback){
+      callback(choreTypes);
     }
 
     this.find = function(callback){

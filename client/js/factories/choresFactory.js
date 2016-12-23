@@ -4,8 +4,6 @@ app.factory('choresFactory', ['$http', function($http) {
 	var chore = {};
 	var user = {};
 
-	console.log('choresFactory loaded');
-
 	function ChoresFactory(){
 		var _this = this;
 
