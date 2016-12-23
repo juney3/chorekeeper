@@ -4,15 +4,22 @@
 <h4>Record a New Chore</h4>
 
 
+
 	<div class="row">
 		<form class="col s12">
 			<div class="row">
 				<div class="input-field col s4">
-					<select ng-model = "newChore.choreType">
-				      <!-- <option value="" disabled selected>Choose one</option> -->
-				      <option ng-repeat = "chore in chores">{{chore }}</option>
+					<label class="active">Chore Type</label>
+					<select ng-model = "newChore.name" id="test">
+				      <option value="" disabled selected>Choose one</option>
+				      <option ng-repeat= "chore in chores track by $index">{{ chore }}</option>
+				      <option class="editable" value="Create new chore type">Create new chore type</option>
 				    </select>
-				    <label>Chore Type</label>
+				</div>
+				<div class="input-field col s4">
+				    <input class="editOption" style="display:none;" placeholder="Type in a new chore type" ng-model="newChore.newName"></input>
+				    
+
 				</div>
 			</div>
 			<div class="row">
@@ -47,5 +54,27 @@
 			});
 
 		$('input#input_text, textarea#description').characterCounter();
+
+		var initialText = $('.editable').val();
+		$('.editOption').val(initialText);
+
+		$('#test').change(function(){
+		var selected = $('option:selected', this).attr('class');
+		var optionText = $('.editable').text();
+
+		if(selected == "editable"){
+		  $('.editOption').show();
+
+		  
+		  $('.editOption').click(function(){
+		      var editText = $('.editOption').val();
+		      $('.editable').val(editText);
+		      $('.editable').html(editText);
+		  });
+
+		}else{
+		  $('.editOption').hide();
+		}
+		});
 	</script>
 

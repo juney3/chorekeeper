@@ -19,5 +19,6 @@ module.exports = function(app){
   app.get('/hacks', hacks.find);
 
   app.post('/chore', chores.create);
+  app.post('/chore/newtype', chores.createNewType);
   // app.post('/chore/retrieve', chores.retrieve);
 }

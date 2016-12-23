@@ -20,7 +20,6 @@ app.factory('housesFactory', ['$http', function($http) {
     this.retrieve = function(user, callback){
       $http.post('/household', user).then(function(household){
         if(typeof(callback) == 'function'){
-          console.log('housesFactory returns household', household);
           callback(household.data);
           choreTypes = household.data.choreType;
         }

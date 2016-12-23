@@ -8,7 +8,7 @@ function ChoresController(){
 
 		//define new chore
 		var newChore = new Chore ({
-			_choreType: req.body._choreType,
+			choreType: req.body.choreType,
 			_user: req.body._user,
 			completed: req.body.completed,
 			description: req.body.completed
@@ -24,7 +24,6 @@ function ChoresController(){
 			}
 		})
 		
-
 		// set chore to variable for saving to other models
 		var chore = req.body._choreType;
 
@@ -46,6 +45,35 @@ function ChoresController(){
 			else{
 				console.log('added chore to household');
 				res.json(household);
+			}
+		})
+
+	}
+
+	this.createNewType = function(req,res){
+		var newChore = new Chore ({
+			_household: req.body._household,
+			choreType: req.body.choreType,
+			_user: req.body._user,
+			completed: req.body.completed,
+			description: req.body.description
+		})
+		newChore.save(function(err, result){
+			if(err){
+				res.json(err);
+			}
+			else{
+				console.log('successfully saved chore');
+				res.json(result);
+			}
+		})
+		console.log("new saved chore is ",newChore);
+		Household.update({_id: newChore._household}, {'$push': {choreType: newChore.choreType}}, function(err, data){
+			if(err){
+				console.log("error");
+			}
+			else{
+				console.log("successfuly appended new chore type to household");
 			}
 		})
 
