@@ -1,12 +1,8 @@
-app.controller('newChoreController', ['$scope', 'choresFactory', 'housesFactory', 'usersFactory', '$timeout', '$cookies', function($scope, choresFactory, housesFactory, usersFactory, $timeout, $cookies) {
-	$scope.user = [];
+app.controller('newChoreController', ['$scope', 'choresFactory', 'housesFactory', 'usersFactory', '$location', '$cookies', function($scope, choresFactory, housesFactory, usersFactory, $location, $cookies) {
+	$scope.user = {};
+	$scope.errors = [];
 	$scope.household = {};
-	$scope.chores = ["dishes"];
-	// $timeout(function(){
-	// 	$scope.$apply(function(){
-	// 		$scope.chores[0].lateLoader = 'i just loaded';
-	// 	})
-	// }, 1000);
+
 
 	var index = function() {
 		housesFactory.retrieveChores(function(data){
@@ -28,10 +24,25 @@ app.controller('newChoreController', ['$scope', 'choresFactory', 'housesFactory'
 
 	index();
 
-	$scope.create = function(){
-		console.log('newChoreControllerhas', $scope.newChore);
-		// choresFactory.create($scope.newChore) {
 
-		// }
+	$scope.create = function(){
+		var newChore = {
+			_choreType: $scope.newChore.name,
+			_user: $scope.user._id,
+			completed: $scope.newChore.completed,
+			description: $scope.newChore.description,
+			household: $scope.household._id,
+		}
+		console.log(newChore);
+		choresFactory.create(newChore, function(chore){
+			if(chore.errors){
+				console.log(chore.errors);
+				$scope.errors = chore.errors;
+			}
+			else{
+				console.log('in newChoreController', chore);
+				$location.url('/dashboard');
+			}
+		})
 	}
 }])

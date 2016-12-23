@@ -26,6 +26,7 @@ function HouseholdsController(){
     Household.find({})
       .populate('_user')
       .populate('admin')
+      .populate('_choreType')
       .exec(function(err,data){
       if(err){
         console.log("error");
@@ -63,7 +64,6 @@ function HouseholdsController(){
       else {
         console.log('server side household controller retrieved household', household);
         res.json(household);
-
       }
     });
   }

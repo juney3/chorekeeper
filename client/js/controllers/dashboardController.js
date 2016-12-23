@@ -4,6 +4,7 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 	$scope.user = {};
 	$scope.isAdmin = false;
 	$scope.requests = [];
+	$scope.chores = [];
 
 
 	var index = function() {
@@ -29,9 +30,21 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 				$location.url('/joinHouse');
 			}
 		})
+
+		// find chores method
+		// choresFactory.retrieve(user, function(chores){
+		// 	if (chores){
+		// 		$scope.chores = chores;
+		// 	}
+		// 	else {
+		// 		console.log('no chores were retrieved');
+		// 	}
+		// })
 	}
 
 	index();
+
+
 
 	$scope.approve = function(x){
 		var user = {
