@@ -22,7 +22,6 @@ app.factory('housesFactory', ['$http', function($http) {
         if(typeof(callback) == 'function'){
           callback(household.data);
           choreTypes = household.data.choreType;
-          console.log(choreTypes);
         }
       });
     };
