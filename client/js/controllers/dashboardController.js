@@ -1,4 +1,4 @@
-app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$cookies', 'housesFactory', function($scope, usersFactory, $location, $cookies, housesFactory){
+app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$cookies', 'housesFactory', 'choresFactory', function($scope, usersFactory, $location, $cookies, housesFactory, choresFactory){
 	$scope.users = []; 
 	$scope.household = {};
 	$scope.user = {};
@@ -32,14 +32,14 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 		})
 
 		// find chores method
-		// choresFactory.retrieve(user, function(chores){
-		// 	if (chores){
-		// 		$scope.chores = chores;
-		// 	}
-		// 	else {
-		// 		console.log('no chores were retrieved');
-		// 	}
-		// })
+		choresFactory.retrieve(user, function(chores){
+			if (chores){
+				$scope.chores = chores;
+			}
+			else {
+				console.log('no chores were retrieved');
+			}
+		})
 	}
 
 	index();

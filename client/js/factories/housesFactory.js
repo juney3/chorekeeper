@@ -23,6 +23,7 @@ app.factory('housesFactory', ['$http', function($http) {
           console.log('housesFactory returns household', household);
           callback(household.data);
           choreTypes = household.data.choreType;
+          console.log(choreTypes);
         }
       });
     };

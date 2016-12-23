@@ -10,7 +10,7 @@
 				<div class="input-field col s4">
 					<select ng-model = "newChore.choreType">
 				      <!-- <option value="" disabled selected>Choose one</option> -->
-				      <option ng-repeat = "chore in chores">{{chore }}</option>
+				      <option ng-repeat = "chore in chores track by $index">{{chore }}</option>
 				    </select>
 				    <label>Chore Type</label>
 				</div>
@@ -40,7 +40,8 @@
 
 	    window.picker = $('.datepicker').pickadate({
 
-	        selectYears: 16, // Creates a dropdown of 15 years to control year
+	        selectYears: 2, // Creates a dropdown of 15 years to control year
+	        maxDate: new Date(),
 	        format: 'yyyy-mm-dd'
 	    	});
 

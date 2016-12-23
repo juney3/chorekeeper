@@ -18,15 +18,15 @@ app.factory('choresFactory', ['$http', function($http) {
 		};
 
 		// Find chores method
-		// this.retrieve = function(user, callback){
-		// 	$http.post('/chore/retrieve', user).then(function(all){
-		// 		if (typeof(callback) == 'function'){
-		// 			console.log('choresFactory has all the chores', all);
-		// 			callback(all.data);
-		// 		}
-		// 	})
+		this.retrieve = function(user, callback){
+			$http.post('/chore/retrieve', user).then(function(all){
+				if (typeof(callback) == 'function'){
+					console.log('choresFactory has all the chores', all);
+					callback(all.data);
+				}
+			})
 
-		// }
+		}
 
 	}
 	return new ChoresFactory();

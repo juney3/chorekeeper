@@ -8,10 +8,11 @@ function ChoresController(){
 
 		//define new chore
 		var newChore = new Chore ({
-			_choreType: req.body._choreType,
+			choreType: req.body.choreType,
 			_user: req.body._user,
 			completed: req.body.completed,
-			description: req.body.completed
+			description: req.body.completed,
+			_household: req.body._household
 		})
 
 		// save new chore
@@ -26,10 +27,10 @@ function ChoresController(){
 		
 
 		// set chore to variable for saving to other models
-		var chore = req.body._choreType;
+		var chore = req.body.choreType;
 
 		// save to user document
-		User.update({_id: req.body._user}, {'$push': {chore: chore}}, function(err, user){
+		User.update({_id: req.body._user}, {'$push': {chore: newChore._id}}, function(err, user){
 			if(err){
 				console.log(err);
 			}
@@ -39,12 +40,21 @@ function ChoresController(){
 		})
 
 		// save to household document
-		Household.update({_id: req.body.household}, {'$push': {choreType: chore}}, function(err, household){
+		Household.update({_id: req.body._household}, {'$push': {choreType: chore}}, function(err, household){
 			if(err){
 				console.log(err);
 			}
 			else{
-				console.log('added chore to household');
+				console.log('added choreType to household');
+			}
+		})
+
+		Household.update({_id: req.body._household}, {'$push': {completedChore: newChore._id}}, function(err, household){
+			if(err){
+				console.log(err);
+			}
+			else{
+				console.log('added completedChore to household');
 				res.json(household);
 			}
 		})
@@ -52,8 +62,18 @@ function ChoresController(){
 	}
 
 	// Find chores method
-	// this.retrieve = function(req, res){
-	// 	Chore.find({})
-	// }
+	this.retrieve = function(req, res){
+		Chore.find({_household: req.body.household})
+		.populate('_user')
+		.populate('_household')
+		.exec(function (err, chores){
+			if(err){
+				console.log('server side chore controller retrieve error', err);
+			}
+			else {
+				res.json(chores);
+			}
+		})
+	}
 }
 module.exports = new ChoresController(); 
