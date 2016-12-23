@@ -20,4 +20,5 @@ module.exports = function(app){
 
   app.post('/chore', chores.create);
   app.post('/chore/retrieve', chores.retrieve);
+  app.post('/chore/newtype', chores.createNewType);
 }

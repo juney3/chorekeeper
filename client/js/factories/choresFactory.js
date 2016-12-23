@@ -17,6 +17,15 @@ app.factory('choresFactory', ['$http', function($http) {
 			})
 		};
 
+		this.createNewType = function(newChore,callback){
+			console.log(newChore);
+			$http.post('/chore/newtype', newChore).then(function(data){
+				if (typeof(callback) == 'function'){
+					callback(data.data);
+				}
+			})
+		}
+
 		// Find chores method
 		this.retrieve = function(user, callback){
 			$http.post('/chore/retrieve', user).then(function(all){
