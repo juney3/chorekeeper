@@ -4,6 +4,7 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 	$scope.user = {};
 	$scope.isAdmin = false;
 	$scope.requests = [];
+	$scope.chores = [];
 
 
 	var index = function() {
@@ -12,8 +13,8 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 			// console.log('dashboardController has loggedUser', data.data);
 			$scope.user = data.data;
 		})
-		housesFactory.retrieve(user, function(household){
 
+		housesFactory.retrieve(user, function(household){
 			if (household){
 			// console.log('dashboard controller has household', household);
 			// console.log('dashboard controller has users', household._user);
@@ -30,9 +31,21 @@ app.controller('dashboardController', ['$scope', 'usersFactory', '$location', '$
 				$location.url('/joinHouse');
 			}
 		})
+
+		// find chores method
+		// choresFactory.retrieve(user, function(chores){
+		// 	if (chores){
+		// 		$scope.chores = chores;
+		// 	}
+		// 	else {
+		// 		console.log('no chores were retrieved');
+		// 	}
+		// })
 	}
 
 	index();
+
+
 
 	$scope.approve = function(x){
 		var user = {
